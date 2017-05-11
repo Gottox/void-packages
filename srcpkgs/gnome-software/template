@@ -1,0 +1,17 @@
+# Template file for 'gnome-software'
+pkgname=gnome-software
+version=3.30.2
+revision=1
+build_style=meson
+hostmakedepends="pkg-config intltool"
+makedepends="gtk+3-devel gsettings-desktop-schemas-devel appstream-glib-devel
+ json-glib-devel libsecret-devel valgrind-devel sqlite-devel libsoup-devel
+ gtkspell3-devel gnome-desktop-devel libgudev-devel polkit-devel flatpak-devel
+ gspell-devel PackageKit-devel"
+short_desc="GNOME3 tool to customize advanced options"
+maintainer="Enno Boland <gottox@voidlinux.eu>"
+license="GPL-2"
+homepage="http://live.gnome.org/GnomeTweakTool"
+distfiles="${GNOME_SITE}/${pkgname}/${version%.*}/${pkgname}-${version}.tar.xz"
+checksum=af1bf97733e0f35e9131ab5b16ff3abdd70b69f6bffa96951739f61369fe37a7
+configure_args="-Dflatpak=true"
