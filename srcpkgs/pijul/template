@@ -1,7 +1,7 @@
 # Template file for 'pijul'
 pkgname=pijul
 version=0.10.0
-revision=1
+revision=2
 hostmakedepends="cargo pkg-config"
 makedepends="libsodium-devel libressl-devel"
 short_desc="Distributed version control system based on patches"
