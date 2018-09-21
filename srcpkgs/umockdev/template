@@ -1,0 +1,14 @@
+# Template file for 'umockdev'
+pkgname=umockdev
+version=0.12
+revision=1
+build_style=gnu-configure
+hostmakedepends="gobject-introspection vala pkg-config"
+makedepends="libgudev-devel"
+depends=""
+short_desc="Mock hardware devices for creating unit tests and bug reporting"
+maintainer="Enno Boland <gottox@voidlinux.eu>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/martinpitt/umockdev/"
+distfiles="https://github.com/martinpitt/umockdev/releases/download/${version}/umockdev-${version}.tar.xz"
+checksum=f2a2b664d8d6b06b9d1ba644866167a8b6f33ed7e5a358731188e69376065731
