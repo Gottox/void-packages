@@ -1,0 +1,26 @@
+# Template file for 'mir'
+pkgname=mir
+version=1.0.0
+revision=1
+build_style=cmake
+hostmakedepends="pkg-config python3-Pillow umockdev"
+makedepends="boost-devel MesaLib-devel glm protobuf-devel capnproto-devel
+ glog-devel gflags-devel glib-devel wayland-devel libXcursor-devel
+ libXrender-devel libepoxy-devel nettle-devel libinput-devel
+ libxml++-devel yaml-cpp-devel libxkbcommon-devel lttng-ust-devel python3-Pillow
+ freetype-devel gtest-devel umockdev libatomic-devel"
+short_desc="fast, open and secure display server for any device"
+maintainer="Enno Boland <gottox@voidlinux.eu>"
+license="GPL-3.0-or-later"
+homepage="https://mir-server.io/"
+distfiles="https://github.com/MirServer/mir/releases/download/v${version}/mir-${version}.tar.xz"
+checksum=4fab613954e4afc3964b1b397fc1edf4fd0f7b9ad5e63391e6cf2c08194136a0
+
+pre_configure() {
+	sed -i '/CMAKE_\(CXX\|C\)_FLAGS/ s/ -Werror / /' CMakeLists.txt
+}
+pre_build() {
+	# Workaround wrong version assumption of gtest. This needs to be changed
+	# once gtest is updated
+	sed -i 's/-DGTEST_VERSION_PATCH=0/-DGTEST_VERSION_PATCH=1/' $(grep -lr -- -DGTEST_VERSION_PATCH=0 build)
+}
