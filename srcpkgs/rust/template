@@ -34,11 +34,11 @@ else
 		distfiles+="
 		 https://alpha.de.repo.voidlinux.org/distfiles/rustc-${_rust_dist_version}-x86_64-unknown-linux-musl.tar.xz
 		 https://alpha.de.repo.voidlinux.org/distfiles/rust-std-${_rust_dist_version}-x86_64-unknown-linux-musl.tar.xz
-		 https://alpha.de.repo.voidlinux.org/distfiles/cargo-${_cargo_dist_version}-x86_64-unknown-linux-musl.tar.gz"
+		 https://alpha.de.repo.voidlinux.org/distfiles/cargo-${_cargo_dist_version}-2-x86_64-unknown-linux-musl.tar.gz"
 		checksum+="
-		 1c54d595b0a1f3e283e453ff142800b3fdfb20dc2e45ceb71317693d2a278362
-		 17d52f198877228788f012acf7b3ccbcbf9240553d42502b6816a3431806d9e1
-		 e9344cbf3db669383cb3492d12bcd42d9130665f577be9ad4d2028011c7b1fae"
+		 9550baae3d2848a881b9e42b4dd8d798615271843bc56ae1f34cdf5f946daae2
+		 ded98b3ba0938715c1fe02812628bc0239c07109248f8d73889af9e8866fd776
+		 5b1e2a268ecedbbdcc624d6a8327ca9941b6b2358275fcd753642da7fb6008ae"
 		;;
 	x86_64)
 		# extract from src/stage0.txt
