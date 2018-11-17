@@ -1,8 +1,8 @@
 # Template file for 'odroid-c2-uboot'
 pkgname=odroid-c2-uboot
 version=v2015.01
-revision=3
-_githash=f416a769454b89c39d5b217d28bd3c9f5d1594df
+revision=4
+_githash=95264d19d04930f67f10f162df70de447659329d
 wrksrc="u-boot-${_githash}"
 only_for_archs="aarch64 aarch64-musl"
 conf_files="/boot/boot.ini"
@@ -12,12 +12,7 @@ maintainer="Christian Neukirchen <chneukirchen@gmail.com>"
 license="GPL-2"
 homepage="https://github.com/hardkernel/u-boot"
 distfiles="https://github.com/hardkernel/u-boot/archive/${_githash}.tar.gz"
-checksum=6b5fb2c5f278cdeaf8361fbcb349a75ffa551db3f993143f87cefd32fdc38874
-
-case "$XBPS_MACHINE" in
-	x86_64) ;;
-	*) broken="Can only be built from x86_64: https://github.com/hardkernel/u-boot/issues/23" ;;
-esac
+checksum=15fa9539af6c88d930ddda4c5b6e1661f16516030bd3b849370212e307529060
 
 make_build_args="ARCH=arm"
 if [ "$CROSS_BUILD" ]; then
@@ -27,6 +22,7 @@ else
 fi
 
 post_extract() {
+	cp include/linux/compiler-gcc7.h include/linux/compiler-gcc8.h
 	touch include/stddef.h  # musl hack
 	sed -i '1itypedef unsigned long ulong;' \
 		include/image.h tools/mkimage.h tools/proftool.c

@@ -1,0 +1,11 @@
+--- tools/fip_create/uuid.h.orig	2018-11-17 11:30:43.100570161 +0100
++++ tools/fip_create/uuid.h	2018-11-17 11:30:47.291647809 +0100
+@@ -34,8 +34,6 @@
+ #ifndef _SYS_UUID_H_
+ #define _SYS_UUID_H_
+ 
+-#include <sys/cdefs.h>
+-
+ /* Length of a node address (an IEEE 802 address). */
+ #define	_UUID_NODE_LEN		6
+ 
