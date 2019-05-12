@@ -30,6 +30,9 @@ system_accounts="pulse"
 pulse_groups="audio"
 pulse_homedir="/var/empty"
 
+# alsa-lib isn't detected correctly, so work around it for now
+CFLAGS+=" -I${XBPS_CROSS_BASE}/usr/include/alsa"
+
 if [ "$CROSS_BUILD" ]; then
 	hostmakedepends+=" glib"
 fi
