@@ -1,7 +1,7 @@
 # Template file for 'telegram-desktop'
 pkgname=telegram-desktop
 version=1.7.0
-revision=1
+revision=2
 _libtgvoip_commit=e7010506210fbb3a6704d7ac1276b3334f9ab6c9
 _GSL_commit=d846fe50a3f0bb7767c7e087a05f4be95f4da0ec
 _variant_commit=550ac2f159ca883d360c196149b466955c77a573
