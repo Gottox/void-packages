@@ -1,7 +1,7 @@
 # Template file for 'zola'
 pkgname=zola
 version=0.6.0
-revision=1
+revision=2
 build_style=cargo
 hostmakedepends="pkg-config"
 makedepends="libressl-devel libsass-devel"
@@ -16,6 +16,11 @@ checksum=647f31300f4e468374dfb325b59a08cb31c4ed855b2e5b677131464ae3ee9925
 case "$XBPS_TARGET_MACHINE" in
 	aarch64-musl) broken="https://github.com/nix-rust/nix/issues/951" ;;
 esac
+
+pre_build() {
+	cargo update --package openssl-sys --precise 0.9.46
+	cargo update --package openssl --precise 0.10.22
+}
 
 post_install() {
 	vlicense LICENSE
