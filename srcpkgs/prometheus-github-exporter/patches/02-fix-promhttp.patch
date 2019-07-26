@@ -1,0 +1,19 @@
+--- main.go.orig	2019-07-26 10:46:52.211536953 +0200
++++ main.go	2019-07-26 10:47:15.474593220 +0200
+@@ -8,6 +8,7 @@ import (
+ 	"github.com/infinityworksltd/github-exporter/exporter"
+ 	"github.com/infinityworksltd/go-common/logger"
+ 	"github.com/prometheus/client_golang/prometheus"
++	"github.com/prometheus/client_golang/prometheus/promhttp"
+ 	"github.com/sirupsen/logrus"
+ )
+ 
+@@ -37,7 +38,7 @@ func main() {
+ 	prometheus.MustRegister(&exporter)
+ 
+ 	// Setup HTTP handler
+-	http.Handle(applicationCfg.MetricsPath(), prometheus.Handler())
++	http.Handle(applicationCfg.MetricsPath(), promhttp.Handler())
+ 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+ 		w.Write([]byte(`<html>
+ 		                <head><title>Github Exporter</title></head>

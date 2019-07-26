@@ -1,0 +1,77 @@
+commit 0b80581e8851cc2f196860ac2637d0b0de4c22b9
+Author: Edward Marshall <ruckafella@gmail.com>
+Date:   Mon Jul 17 11:32:37 2017 +0100
+
+    Fixed case in imports
+
+diff --git config/config.go config/config.go
+index 0843102..cb4bded 100644
+--- config/config.go
++++ config/config.go
+@@ -5,7 +5,7 @@ import (
+ 	"io/ioutil"
+ 	"strings"
+ 
+-	log "github.com/Sirupsen/logrus"
++	log "github.com/sirupsen/logrus"
+ 
+ 	"os"
+ 
+diff --git exporter/gather.go exporter/gather.go
+index 37864ad..f9ec424 100644
+--- exporter/gather.go
++++ exporter/gather.go
+@@ -5,7 +5,7 @@ import (
+ 	"fmt"
+ 	"strconv"
+ 
+-	log "github.com/Sirupsen/logrus"
++	log "github.com/sirupsen/logrus"
+ )
+ 
+ // gatherData - Collects the data from the API and stores into struct
+diff --git exporter/http.go exporter/http.go
+index 67c78e5..0f3a535 100644
+--- exporter/http.go
++++ exporter/http.go
+@@ -6,7 +6,7 @@ import (
+ 	"net/http"
+ 	"time"
+ 
+-	log "github.com/Sirupsen/logrus"
++	log "github.com/sirupsen/logrus"
+ )
+ 
+ func asyncHTTPGets(targets []string, token string) ([]*Response, error) {
+diff --git exporter/prometheus.go exporter/prometheus.go
+index dac238e..90715dc 100644
+--- exporter/prometheus.go
++++ exporter/prometheus.go
+@@ -1,8 +1,8 @@
+ package exporter
+ 
+ import (
+-	log "github.com/Sirupsen/logrus"
+ 	"github.com/prometheus/client_golang/prometheus"
++	log "github.com/sirupsen/logrus"
+ )
+ 
+ // Describe - loops through the API metrics and passes them to prometheus.Describe
+diff --git main.go main.go
+index 66b0ccf..b9f54f6 100644
+--- main.go
++++ main.go
+@@ -3,12 +3,12 @@ package main
+ import (
+ 	"net/http"
+ 
+-	"github.com/Sirupsen/logrus"
+ 	"github.com/fatih/structs"
+ 	conf "github.com/infinityworksltd/github-exporter/config"
+ 	"github.com/infinityworksltd/github-exporter/exporter"
+ 	"github.com/infinityworksltd/go-common/logger"
+ 	"github.com/prometheus/client_golang/prometheus"
++	"github.com/sirupsen/logrus"
+ )
+ 
+ var (

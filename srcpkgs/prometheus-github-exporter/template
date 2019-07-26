@@ -1,0 +1,14 @@
+# Template file for 'prometheus-github-exporter'
+pkgname=prometheus-github-exporter
+version=04
+revision=1
+wrksrc=github-exporter-$version
+build_style=go
+go_import_path=github.com/infinityworksltd/github-exporter
+hostmakedepends="git"
+short_desc="Prometheus exporter for github metrics"
+maintainer="Enno Boland <gottox@voidlinux.org>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/infinityworks/github-exporter"
+distfiles="https://github.com/infinityworks/github-exporter/archive/$version.tar.gz"
+checksum=af8a907e41e2bd9ff5c0fecdf9aa5fd08b479c6dba9276548f5052e01f7d6821
