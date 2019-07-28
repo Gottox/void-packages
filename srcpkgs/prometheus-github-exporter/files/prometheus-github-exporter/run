@@ -1,0 +1,7 @@
+#!/bin/sh
+. /etc/default/prometheus-github-exporter
+
+export ORGS REPOS USERS GITHUB_TOKEN GITHUB_TOKEN_FILE API_URL LISTEN_PORT \
+	METRICS_PATH LOG_LEVEL
+
+exec chpst -u _githubexporter:_githubexporter github-exporter > /dev/null
