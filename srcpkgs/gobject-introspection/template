@@ -1,8 +1,9 @@
 # Template file for 'gobject-introspection'
 pkgname=gobject-introspection
-version=1.60.0
-revision=7
+version=1.62.0
+revision=1
 build_style=meson
+build_helper=gir
 pycompile_dirs="usr/lib/${pkgname}/giscanner"
 hostmakedepends="flex pkg-config"
 makedepends="cairo-devel libffi-devel libglib-devel libxml2-devel python3-devel"
@@ -12,7 +13,7 @@ maintainer="Enno Boland <gottox@voidlinux.org>"
 license="GPL-2.0-or-later, LGPL-2.1-or-later"
 homepage="https://wiki.gnome.org/Projects/GObjectIntrospection"
 distfiles="${GNOME_SITE}/${pkgname}/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=9efe4090cb59717126701e97062e784773f800b8d47af14c4d278ebf194df35d
+checksum=b1ee7ed257fdbc008702bdff0ff3e78a660e7e602efa8f211dc89b9d1e7d90a2
 pycompile_version="$py3_ver"
 
 patch_args="-Np1"
