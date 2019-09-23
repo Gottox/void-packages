@@ -1,23 +1,23 @@
 # Template file for 'mutter'
 pkgname=mutter
-version=3.32.2
+version=3.34.0
 revision=1
 build_helper="gir"
 build_style=meson
 configure_args="-Degl_device=true -Dudev=true -Dnative_backend=true
- -Dintrospection=true -Dxwayland_path=/usr/bin/Xwayland"
+ -Dintrospection=true -Dxwayland_path=/usr/bin/Xwayland -Dinstalled_tests=false"
 hostmakedepends="glib-devel pkg-config zenity wayland-devel xorg-server"
 makedepends="elogind-devel glib-devel gnome-desktop-devel json-glib-devel
  libglib-devel libSM-devel libXtst-devel libcanberra-devel libinput-devel
- MesaLib-devel pipewire-devel startup-notification-devel wayland-protocols
- gnome-settings-daemon-devel"
+ MesaLib-devel pipewire-devel startup-notification-devel sysprof-devel
+ wayland-protocols gnome-settings-daemon-devel"
 depends="desktop-file-utils zenity"
 short_desc="Lightweight GTK+3 window manager"
 maintainer="Enno Boland <gottox@voidlinux.org>"
 license="GPL-2.0-or-later"
 homepage="https://wiki.gnome.org/Projects/Mutter/"
 distfiles="${GNOME_SITE}/${pkgname}/${version%.*}/${pkgname}-${version}.tar.xz"
-checksum=6ab3ec487228d3e6a12aa5eda719608c7d6bd8960184278377b79dab443ca7c0
+checksum=5aa36991c40e114eb340737e0d3727e12c5c0a29c33879c6297922e51de0b761
 shlib_provides="libmutter-clutter-4.so libmutter-cogl-4.so
  libmutter-cogl-gles2-4.so libmutter-cogl-pango-4.so libmutter-cogl-path-4.so"
 
