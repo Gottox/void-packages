@@ -3,7 +3,6 @@ pkgname=gobject-introspection
 version=1.62.0
 revision=1
 build_style=meson
-build_helper=gir
 pycompile_dirs="usr/lib/${pkgname}/giscanner"
 hostmakedepends="flex pkg-config"
 makedepends="cairo-devel libffi-devel libglib-devel libxml2-devel python3-devel"
@@ -19,7 +18,8 @@ pycompile_version="$py3_ver"
 patch_args="-Np1"
 
 if [ "$CROSS_BUILD" ]; then
-	hostmakedepends+=" gobject-introspection qemu-user-static prelink-cross"
+	build_helper=gir
+	hostmakedepends+=" qemu-user-static prelink-cross"
 	configure_args+=" -Denable-host-gi=true
 	 -Denable-gi-cross-wrapper=/usr/bin/g-ir-scanner-qemuwrapper
 	 -Denable-gi-ldd-wrapper=/usr/bin/g-ir-scanner-lddwrapper
