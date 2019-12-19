@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: irc push
         uses: rectalogic/notify-irc@v1
-        if: github.event_name == 'push' && github.repository == 'Gottox/void-packages'
+        if: github.event_name == 'push' && github.repository ==  'Gottox/void-packages'
         with:
           notice: true
           channel: "#xbps"
