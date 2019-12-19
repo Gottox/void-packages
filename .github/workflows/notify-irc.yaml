@@ -1,7 +1,7 @@
 name: "Push Notification"
 on:
   push:
-    branches: [master]
+    branches: [master, irc-notification]
   pull_request:
     types: [opened, closed]
   issues:
@@ -13,9 +13,9 @@ jobs:
     steps:
       - name: irc push
         uses: rectalogic/notify-irc@v1
-        if: github.event_name == 'push' && github.repository == 'void-linux/void-packages'
+        if: github.event_name == 'push' && github.repository == 'Gottox/void-packages'
         with:
-          #notice: true
+          notice: true
           channel: "#xbps"
           nickname: void-packages
           sasl_password: ${{ secrets.freenode_password_void_packages }}
@@ -23,21 +23,21 @@ jobs:
           message: "${{ github.actor }} pushed ${{ github.event.compare }}"
       - name: irc pull request
         uses: rectalogic/notify-irc@v1
-        if: github.event_name == 'pull_request' && github.repository == 'void-linux/void-packages'
+        if: github.event_name == 'pull_request' && github.repository == 'Gottox/void-packages'
         with:
-          #notice: true
+          notice: true
           channel: "#xbps"
           nickname: void-packages
           sasl_password: ${{ secrets.freenode_password_void_packages }}
           tls: true
-          message: "${{ github.actor }} ${{ github.event.action }} pull request #${{ github.event.pull_request.number }} “${{ github.event.pull_request.title }}”"
+          message: "${{ github.actor }} ${{ github.event.action }} pull request “${{ github.event.pull_request.title }}” ${{ github.event.pull_request.url }}"
       - name: irc issue
         uses: rectalogic/notify-irc@v1
-        if: github.event_name == 'issues' && github.repository == 'void-linux/void-packages'
+        if: github.event_name == 'issues' && github.repository == 'Gottox/void-packages'
         with:
-          #notice: true
+          notice: true
           channel: "#xbps"
           nickname: void-packages
           sasl_password: ${{ secrets.freenode_password_void_packages }}
           tls: true
-          message: "${{ github.actor }} ${{ github.event.action }} issue #${{ github.event.issue.number }} “${{ github.event.issue.title }}”"
+          message: "${{ github.actor }} ${{ github.event.action }} issue “${{ github.event.issue.title }}” ${{ github.event.issue.url }}"
