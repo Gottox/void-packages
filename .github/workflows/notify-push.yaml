@@ -3,6 +3,7 @@ on:
   push:
     branches: [master]
 
+
 jobs:
   ircnotify:
     runs-on: ubuntu-latest
