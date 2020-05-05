@@ -10,17 +10,18 @@ jobs:
     steps:
       - name: Shorten URL
         id: shortener
-        if: github.repository == 'void-linux/void-packages'
+        if: github.repository == 'Gottox/void-packages'
         uses: Gottox/url-shortener-action@master
         with:
           url: "${{ github.event.issue.html_url }}"
       - name: "Issue Notification"
         uses: Gottox/irc-message-action@master
         continue-on-error: true
-        if: github.repository == 'void-linux/void-packages'
+        if: github.repository == 'Gottox/void-packages'
         with:
-          notice: true
-          channel: "#xbps"
+          notice: false
+          debug: true
+          channel: "#gottox-channel"
           nickname: void-packages
           sasl_password: ${{ secrets.freenode_password_void_packages }}
           tls: true
