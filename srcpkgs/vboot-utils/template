@@ -3,21 +3,20 @@ pkgname=vboot-utils
 version=45.7262
 revision=13
 archs="x86_64* i686* aarch64* arm*"
-hostmakedepends="pkg-config git"
+hostmakedepends="pkg-config"
 makedepends="libressl-devel libuuid-devel liblzma-devel libyaml-devel"
 short_desc="Verified boot kernel utilities"
 maintainer="Enno Boland <gottox@voidlinux.org>"
 license="BSD-3-Clause"
 homepage="https://chromium.googlesource.com/chromiumos/platform/vboot_reference.git"
 CFLAGS='-D_GNU_SOURCE -Wno-error -fcommon'
+distfiles="https://chromium.googlesource.com/chromiumos/platform/vboot_reference.git/+archive/refs/heads/release-R${version//./-}.B.tar.gz"
+checksum=c95b86754bf59e7dd7a78953aeea939e367363c7c21a0fbe7cd1456c12e295a9
+create_wrksrc=yes
 
 case "$XBPS_TARGET_MACHINE" in
 	aarch64*) broken="https://build.voidlinux.org/builders/aarch64-musl_builder/builds/8508/steps/shell_3/logs/stdio" ;;
 esac
-
-do_fetch() {
-	git clone -b release-R${version/./-}.B https://chromium.googlesource.com/chromiumos/platform/vboot_reference.git $pkgname-$version
-}
 
 do_build() {
 	local _arch=
