@@ -1,0 +1,30 @@
+# Template file for 'libsqsh'
+pkgname=libsqsh
+version=0.3.0
+revision=1
+build_style=meson
+makedepends="libcurl-devel zlib-devel liblz4-devel liblzma-devel libzstd-devel
+ fuse3-devel"
+short_desc="fresh squashfs implementation."
+maintainer="Enno Boland <gottox@voidlinux.org>"
+license="BSD-2-Clause"
+homepage="https://gottox.de/libsqsh/"
+distfiles="https://github.com/Gottox/libsqsh/archive/refs/tags/v${version}.tar.gz"
+checksum=793ad819192c10601476a411604b487229f5fac25f17e7ea9634ec8c9b7cf0b6
+
+libsqsh-devel_package() {
+	depends="${sourcepkg}>=${version}_${revision}"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		vmove "usr/lib/*.so"
+	}
+}
+
+libsqsh-tools_package() {
+	pkg_install() {
+		vmove usr/bin
+		vmove usr/share/man
+	}
+}
